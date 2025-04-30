@@ -1,12 +1,15 @@
 package com.ecommerce.service;
 
+import com.ecommerce.aws.service.AwsS3Service;
 import com.ecommerce.dto.ProdutoDTO;
 import com.ecommerce.model.Produto;
 import com.ecommerce.model.ProdutoRepository;
 import jakarta.websocket.server.ServerEndpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +19,9 @@ public class ProdutoServicoImpl implements ProdutoService{
 
     @Autowired
     private ProdutoRepository produtoRepository;
+
+    @Autowired
+    private AwsS3Service awsS3Service;
 
 
     @Override
